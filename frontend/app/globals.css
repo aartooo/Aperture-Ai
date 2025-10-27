@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === THEME COLORS === */
+:root {
+  --color-bg-primary: 255 255 255;
+  --color-bg-secondary: 247 247 247;
+  --color-text-primary: 10 10 10;
+  --color-text-secondary: 80 80 80;
+  --color-text-accent: 0 115 255;
+  --color-border: 230 230 230;
+}
+
+.dark {
+  --color-bg-primary: 24 24 27;
+  --color-bg-secondary: 39 39 42;
+  --color-text-primary: 245 245 245;
+  --color-text-secondary: 160 160 160;
+  --color-text-accent: 59 130 246;
+  --color-border: 63 63 70;
+}
+
+.black {
+  --color-bg-primary: 0 0 0;
+  --color-bg-secondary: 10 10 10;
+  --color-text-primary: 245 245 245;
+  --color-text-secondary: 160 160 160;
+  --color-text-accent: 59 130 246;
+  --color-border: 30 30 30;
+}
+
+/* === BODY & TYPOGRAPHY === */
+body {
+  background-color: rgb(var(--color-bg-primary)) !important;
+  color: rgb(var(--color-text-primary)) !important;
+  transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1), color 200ms;
+}
+
+.black h1, .black h2, .black h3, .black h4, .black h5, .black h6,
+.black a, .black strong, .black b, .black * {
+  color: rgb(var(--color-text-primary)) !important;
+}
+
+.black a {
+  color: rgb(var(--color-text-accent)) !important;
+  text-decoration: none;
+}
+
+.black a:hover {
+  color: rgb(var(--color-text-secondary)) !important;
+}
+
+/* === UTILITIES === */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--text-secondary));
+  }
+
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+
+  html.lenis, .lenis.lenis-smooth { scroll-behavior: auto; }
+  .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+}
+
+/* === HERO SLIDER — LIGHTER GRADIENT + MOBILE POWER === */
+.hero-gradient {
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 50%, transparent 100%);
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 32px !important;
+  background: white !important;
+  border-radius: 4px !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-pagination-bullet { width: 6px !important; height: 6px !important; }
+  .swiper-pagination-bullet-active { width: 24px !important; }
+}
+
+/* Arrows - Hidden on mobile */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 40px !important;
+  height: 40px !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 50 !important;
+  transition: all 0.3s ease !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}
+
+.swiper-button-prev { left: 16px !important; }
+.swiper-button-next { right: 16px !important; }
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: rgba(0, 0, 0, 0.7) !important;
+}
+
+@media (max-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+}
+
+/* === PARTNER RIBBON — MOBILE SCROLL FIXED === */
+.animate-scroll {
+  animation: scroll 25s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.group:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Mobile speed */
+@media (max-width: 640px) {
+  .animate-scroll {
+    animation-duration: 18s;
+  }
+}

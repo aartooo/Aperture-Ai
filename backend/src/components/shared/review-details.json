@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_review_details",
+  "info": {
+    "displayName": "reviewDetails",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "productName": {
+      "type": "string",
+      "required": true
+    },
+    "rating": {
+      "type": "decimal"
+    },
+    "pros": {
+      "type": "blocks"
+    },
+    "cons": {
+      "type": "blocks"
+    },
+    "verdict": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

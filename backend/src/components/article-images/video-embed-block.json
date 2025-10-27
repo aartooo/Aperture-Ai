@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_article_images_video_embed_blocks",
+  "info": {
+    "displayName": "VideoEmbedBlock",
+    "icon": "monitor"
+  },
+  "options": {},
+  "attributes": {
+    "embedCode": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
